@@ -8,9 +8,9 @@ services:
     networks:
       - monitoring
     volumes:
-      - grafana_etc:/etc/grafana
-      - grafana_lib:/var/lib/grafana
-      - grafana_log:/var/log/grafana
+      - /root/git/grafana-data/etc:/etc/grafana
+      - /root/git/grafana-data/lib:/var/lib/grafana
+      - /root/git/grafana-data/log:/var/log/grafana
     deploy:
       placement:
         constraints: [node.labels.node-role == infra]
@@ -21,9 +21,3 @@ networks:
     monitoring:
       external:
         name: monitoring
-
-volumes:
-    grafana_etc:
-    grafana_lib:
-    grafana_log:
-    
